@@ -21,7 +21,7 @@ public class JdbcTemplate<T> {
             }
             return rows;
         } finally {
-            databaseHelper.close();
+//            databaseHelper.close();
         }
     }
 
@@ -36,7 +36,7 @@ public class JdbcTemplate<T> {
             }
             return Optional.empty();
         } finally {
-            databaseHelper.close();
+//            databaseHelper.close();
         }
     }
 
@@ -47,7 +47,7 @@ public class JdbcTemplate<T> {
             addParameter(preparedStatement, parameters);
             return databaseHelper.update();
         } finally {
-            databaseHelper.close();
+//            databaseHelper.close();
         }
     }
 
