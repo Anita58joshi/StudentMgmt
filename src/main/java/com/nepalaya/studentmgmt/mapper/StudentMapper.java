@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 
 public class StudentMapper implements RowMapper<Student> {
 
+    // Object Relational Mapping
     @Override
     public Student map(ResultSet resultSet) throws Exception {
         return Student

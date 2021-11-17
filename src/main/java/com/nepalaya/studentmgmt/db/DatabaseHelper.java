@@ -11,8 +11,8 @@ public class DatabaseHelper {
     private PreparedStatement preparedStatement;
 
     public void connect() throws Exception {
-        Class.forName(DatabaseConfig.DRIVER_NAME);
-        connection = DriverManager.getConnection(DatabaseConfig.URL, DatabaseConfig.USERNAME, DatabaseConfig.PASSWORD);
+        connection = PooledConnection.getInstance().getConnection();
+        System.out.println("Connection: " + connection);
     }
 
     public PreparedStatement initialize(String sql) throws Exception {

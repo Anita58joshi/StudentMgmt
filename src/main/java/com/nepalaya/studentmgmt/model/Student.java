@@ -2,14 +2,14 @@ package com.nepalaya.studentmgmt.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
-import javax.validation.constraints.Size;
+import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Date;
-
+@Entity
+@Table(name = "STUDENTS")
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -19,6 +19,9 @@ import java.util.Date;
 public class Student implements Serializable {
 
 
+    @Id
+    @Column(name="ID")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     @NotBlank
     @Size(min = 2, max=150)
@@ -26,13 +29,18 @@ public class Student implements Serializable {
     @NotNull
     @Past
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    @Column(name="DOB")
     private Date dob;
     @NotBlank
+    @Column(name="ADDRESS")
     @Size(min = 2, max=200)
     private String address;
     @NotBlank
+    @Column(name="CONTACT_NO")
     private String contactNo;
+    @Temporal(TemporalType.TIMESTAMP)
     private Date createdDate;
+    @Column(name="STATUS", columnDefinition = "BOOLEAN DEFAULT TRUE")
     private Boolean status;
 
 

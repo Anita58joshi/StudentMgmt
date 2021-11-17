@@ -1,5 +1,12 @@
 package com.nepalaya.studentmgmt.db;
 
+import com.nepalaya.studentmgmt.model.Student;
+import org.hibernate.Transaction;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -22,6 +29,7 @@ public class JdbcTemplate<T> {
             return rows;
         } finally {
 //            databaseHelper.close();
+            databaseHelper.close();
         }
     }
 
@@ -37,6 +45,7 @@ public class JdbcTemplate<T> {
             return Optional.empty();
         } finally {
 //            databaseHelper.close();
+            databaseHelper.close();
         }
     }
 
@@ -48,6 +57,7 @@ public class JdbcTemplate<T> {
             return databaseHelper.update();
         } finally {
 //            databaseHelper.close();
+            databaseHelper.close();
         }
     }
 
