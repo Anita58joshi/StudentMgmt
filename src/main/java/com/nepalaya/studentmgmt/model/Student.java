@@ -3,7 +3,7 @@ package com.nepalaya.studentmgmt.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
-import org.hibernate.annotations.CreationTimestamp;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenerationTime;
 
 import javax.persistence.*;
@@ -23,37 +23,39 @@ public class Student implements Serializable {
 
 
     @Id
-    @Column(name="ID")
+    @Column(name = "ID", nullable = false)
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    @NotBlank
-    @Size(min = 2, max=150)
 
+    @NotBlank
+    @Size(min = 2, max = 150)
+    @Column(name = "NAME", nullable = false)
     private String name;
+
     @NotNull
     @Past
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    @Column(name="DOB")
+    @Column(name = "DOB", nullable = false)
     private Date dob;
 
     @NotBlank
-    @Column(name="ADDRESS")
-    @Size(min = 2, max=200)
+    @Column(name = "ADDRESS", nullable = false)
+    @Size(min = 2, max = 200)
     private String address;
 
     @NotBlank
-    @Column(name="CONTACT_NO")
+    @Column(name = "CONTACT_NO", nullable = false)
     private String contactNo;
 
-    @Column(name="CREATED_DATE", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    @ColumnDefault(value="CURRENT_TIMESTAMP")
+    @JsonIgnore
     @org.hibernate.annotations.Generated(GenerationTime.INSERT)
+    @Column(name = "CREATED_DATE", updatable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdDate;
 
-    @ColumnDefault(value="TRUE")
+    @JsonIgnore
     @org.hibernate.annotations.Generated(GenerationTime.INSERT)
-    @Column(name="STATUS", columnDefinition = "BOOLEAN DEFAULT TRUE")
+    @Column(name = "STATUS", nullable = false, columnDefinition = "BOOLEAN DEFAULT TRUE")
     private Boolean status;
 
 

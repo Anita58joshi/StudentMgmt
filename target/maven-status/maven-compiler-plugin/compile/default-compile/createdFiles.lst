@@ -1,4 +1,5 @@
 com\nepalaya\studentmgmt\exception\ExceptionDataWrapper.class
+com\nepalaya\studentmgmt\dao\impl\GenericDAOImpl.class
 com\nepalaya\studentmgmt\db\RowMapper.class
 com\nepalaya\studentmgmt\service\StudentService.class
 com\nepalaya\studentmgmt\validators\ModelConstraintValidator.class
@@ -18,10 +19,13 @@ com\nepalaya\studentmgmt\dao\StudentDAO.class
 com\nepalaya\studentmgmt\exception\ExceptionWrapper.class
 com\nepalaya\studentmgmt\model\Student.class
 com\nepalaya\studentmgmt\controller\Controller.class
+com\nepalaya\studentmgmt\dao\GenericDAO.class
+com\nepalaya\studentmgmt\dao\impl\Conditional.class
 com\nepalaya\studentmgmt\util\JacksonUtil.class
 com\nepalaya\studentmgmt\controller\StudentController.class
+com\nepalaya\studentmgmt\dao\impl\StudentDAOImpl.class
+com\nepalaya\studentmgmt\dao\impl\StudentDAOJdbcTemplateImpl.class
 com\nepalaya\studentmgmt\filter\SecurityFilter.class
-com\nepalaya\studentmgmt\dao\impl\StudentDAODatabaseImpl.class
 com\nepalaya\studentmgmt\db\DatabaseConfig.class
 com\nepalaya\studentmgmt\db\JdbcTemplate.class
 com\nepalaya\studentmgmt\util\LogUtil.class

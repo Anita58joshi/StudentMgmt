@@ -2,9 +2,10 @@ package com.nepalaya.studentmgmt.service.impl;
 
 import com.nepalaya.studentmgmt.builder.ResponseBuilder;
 import com.nepalaya.studentmgmt.dao.StudentDAO;
-import com.nepalaya.studentmgmt.dao.impl.StudentDAODatabaseImpl;
 import com.nepalaya.studentmgmt.dao.impl.StudentDAOHibernateImpl;
 import com.nepalaya.studentmgmt.exception.ResponseProcessor;
+import com.nepalaya.studentmgmt.dao.impl.StudentDAOImpl;
+import com.nepalaya.studentmgmt.dao.impl.StudentDAOJdbcTemplateImpl;
 import com.nepalaya.studentmgmt.model.Student;
 import com.nepalaya.studentmgmt.response.Response;
 import com.nepalaya.studentmgmt.service.StudentService;
@@ -12,13 +13,13 @@ import com.nepalaya.studentmgmt.service.StudentService;
 public class StudentServiceImpl implements StudentService {
 
 //    private final StudentDAO studentDAO = new StudentDAODatabaseImpl();
-private final StudentDAO studentDAO = new StudentDAOHibernateImpl();
+private final StudentDAO studentDAO = new StudentDAOImpl();
 
     @Override
     public Response add(Student student) {
         return ResponseProcessor
                 .process(() -> {
-                            studentDAO.add(student);
+                            studentDAO.save(student);
                             return ResponseBuilder.success("Student Added Successfully !");
                         }
                 );
@@ -52,6 +53,6 @@ private final StudentDAO studentDAO = new StudentDAOHibernateImpl();
     @Override
     public Response getById(Long id) {
         return ResponseProcessor
-                .process(() -> ResponseBuilder.success("Student Fetched Successfully !", studentDAO.getById(id)));
+                .process(() -> ResponseBuilder.success("Student Fetched Successfully !", studentDAO.getOneById(id)));
     }
 }
