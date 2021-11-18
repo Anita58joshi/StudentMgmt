@@ -10,7 +10,9 @@ com\nepalaya\studentmgmt\util\DateUtil.class
 com\nepalaya\studentmgmt\db\QueryConstant$Student.class
 com\nepalaya\studentmgmt\db\QueryConstant.class
 com\nepalaya\studentmgmt\response\Response.class
+com\nepalaya\studentmgmt\db\PooledConnection.class
 com\nepalaya\studentmgmt\controller\HomeController.class
+com\nepalaya\studentmgmt\dao\impl\StudentDAOHibernateImpl.class
 com\nepalaya\studentmgmt\exception\ResponseProcessor.class
 com\nepalaya\studentmgmt\dao\StudentDAO.class
 com\nepalaya\studentmgmt\exception\ExceptionWrapper.class
