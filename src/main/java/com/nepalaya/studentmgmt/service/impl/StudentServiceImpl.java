@@ -7,9 +7,12 @@ import com.nepalaya.studentmgmt.dao.impl.StudentDAOImpl;
 import com.nepalaya.studentmgmt.model.Student;
 import com.nepalaya.studentmgmt.response.Response;
 import com.nepalaya.studentmgmt.service.StudentService;
-import javax.enterprise.context.ApplicationScoped;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@ApplicationScoped
+
+//@Component
+@service
 
 public class StudentServiceImpl implements StudentService {
 
